@@ -1,4 +1,4 @@
-import type { PluginListenerHandle } from '@capacitor/core';
+import type { PluginListenerHandle, Plugin } from '@capacitor/core';
 
 export type MessageEvent = {
     data: string
@@ -51,12 +51,19 @@ export type TextMessageErrorEvent = {
     cause: string
 }
 
-export interface DggChatSocketPlugin {
+export type buildOptions = {
+    url: string,
+    headers?: {
+        [headerKey: string]: string,
+    }
+}
+
+export interface CapacitorWebsocketPlugin extends Plugin {
     connect(): Promise<void>;
     disconnect(): Promise<void>;
     send(options: { data: string }): Promise<void>;
     applyListeners(): Promise<void>;
-    build(options: { authToken: string }): Promise<void>
+    build(options: buildOptions): Promise<void>;
     addListener(eventName: "message", listenerFunc: (event: MessageEvent) => void): Promise<PluginListenerHandle> & PluginListenerHandle;
     addListener(eventName: "connected", listenerFunc: (event: ConnectedEvent) => void): Promise<PluginListenerHandle> & PluginListenerHandle;
     addListener(eventName: "disconnected", listenerFunc: (event: DisconnectedEvent) => void): Promise<PluginListenerHandle> & PluginListenerHandle;

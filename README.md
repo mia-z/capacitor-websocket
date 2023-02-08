@@ -80,12 +80,12 @@ applyListeners() => Promise<void>
 ### build(...)
 
 ```typescript
-build(options: { authToken: string; }) => Promise<void>
+build(options: buildOptions) => Promise<void>
 ```
 
-| Param         | Type                                |
-| ------------- | ----------------------------------- |
-| **`options`** | <code>{ authToken: string; }</code> |
+| Param         | Type                                                  |
+| ------------- | ----------------------------------------------------- |
+| **`options`** | <code><a href="#buildoptions">buildOptions</a></code> |
 
 --------------------
 
@@ -277,6 +277,11 @@ addListener(eventName: "textmessage", listenerFunc: (event: TextMessageEvent) =>
 
 
 ### Type Aliases
+
+
+#### buildOptions
+
+<code>{ url: string, headers?: { [headerKey: string]: string, } }</code>
 
 
 #### MessageEvent

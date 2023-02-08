@@ -1,6 +1,6 @@
 {
-  "name": "@miaz/dgg-chat",
-  "version": "0.0.1",
+  "name": "@miaz/capacitor-websocket",
+  "version": "0.1.1",
   "description": "Basic websocket for capacitor",
   "main": "dist/plugin.cjs.js",
   "module": "dist/esm/index.js",
@@ -17,10 +17,10 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mia-z/dgg-kotlin-websocket.git"
+    "url": "git+https://github.com/mia-z/capacitor-websocket.git"
   },
   "bugs": {
-    "url": "https://github.com/mia-z/dgg-kotlin-websocket/issues"
+    "url": "https://github.com/mia-z/capacitor-websocket/issues"
   },
   "keywords": [
     "capacitor",
@@ -37,7 +37,7 @@
     "eslint": "eslint . --ext ts",
     "prettier": "prettier \"**/*.{css,html,ts,js,java}\"",
     "swiftlint": "node-swiftlint",
-    "docgen": "docgen --api DggChatSocketPlugin --output-readme README.md --output-json dist/docs.json",
+    "docgen": "docgen --api CapacitorWebsocketPlugin --output-readme README.md --output-json dist/docs.json",
     "build": "npm run clean && npm run docgen && tsc && rollup -c rollup.config.js",
     "clean": "rimraf ./dist",
     "watch": "tsc --watch",

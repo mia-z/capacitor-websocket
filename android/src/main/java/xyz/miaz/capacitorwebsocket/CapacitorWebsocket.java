@@ -1,6 +1,5 @@
-package xyz.miaz.dggchatsocket;
+package xyz.miaz.capacitorwebsocket;
 
-import android.util.Log;
 import com.getcapacitor.JSObject;
 import com.getcapacitor.Plugin;
 import com.getcapacitor.PluginCall;
@@ -9,53 +8,47 @@ import com.getcapacitor.annotation.CapacitorPlugin;
 import com.neovisionaries.ws.client.*;
 
 import java.io.IOException;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-@CapacitorPlugin(name = "DggChatSocket")
-public class DggChatSocket extends Plugin {
+@CapacitorPlugin(name = "CapacitorWebsocket")
+public class CapacitorWebsocket extends Plugin {
     private WebSocket socket;
-    private String authToken;
     private boolean connected = false;
 
     @PluginMethod()
     public void build(PluginCall call) throws IOException {
-        authToken = call.getString("authToken");
-        build_local();
-        call.resolve();
+        try {
+            String url = call.getString("url");
+            WebSocketFactory factory = new WebSocketFactory().setConnectionTimeout(5000);
+
+            socket = factory.createSocket(url);
+
+            socket.clearHeaders();
+
+            JSObject json = call.getObject("headers");
+            for (Iterator<String> i = json.keys(); i.hasNext ();) {
+                String key = (String) i.next ();
+                Object val = json.get(key);
+                socket.addHeader(key, (String) val);
+                System.out.println(String.format("key: %s, value: %s", key, val));
+            }
+
+            call.resolve();
+        } catch (Exception e) {
+            call.reject("Couldnt create socket");
+        }
     }
 
     @PluginMethod()
     public void applyListeners(PluginCall call) {
-        applyListeners_local();
-        call.resolve();
-    }
-
-    @PluginMethod()
-    public void connect(PluginCall call) throws WebSocketException {
-        connect_local();
-        call.resolve();
-    }
-
-    @PluginMethod()
-    public void disconnect(PluginCall call) {
-        disconnect_local();
-        call.resolve();
-    }
-
-    @PluginMethod()
-    public void send(PluginCall call) {
-        socket.sendText(call.getString("data"));
-        call.resolve();
-    }
-
-    private void applyListeners_local() {
         socket.clearListeners();
 
         socket.addListener(new WebSocketAdapter() {
             @Override
             public void onTextMessage(WebSocket websocket, String message) throws Exception {
-                super.onTextMessage(websocket, message);
+                //super.onTextMessage(websocket, message);
                 JSObject ret = new JSObject();
                 ret.put("data", message);
                 notifyListeners("message", ret);
@@ -63,7 +56,7 @@ public class DggChatSocket extends Plugin {
 
             @Override
             public void onStateChanged(WebSocket websocket, WebSocketState newState) throws Exception {
-                super.onStateChanged(websocket, newState);
+                //super.onStateChanged(websocket, newState);
                 System.out.println(newState);
                 JSObject ret = new JSObject();
                 ret.put("state", newState);
@@ -72,7 +65,7 @@ public class DggChatSocket extends Plugin {
 
             @Override
             public void onCloseFrame(WebSocket websocket, WebSocketFrame frame) throws Exception {
-                super.onCloseFrame(websocket, frame);
+                //super.onCloseFrame(websocket, frame);
                 System.out.println("close frame");
                 JSObject ret = new JSObject();
                 ret.put("frame", frame);
@@ -81,7 +74,7 @@ public class DggChatSocket extends Plugin {
 
             @Override
             public void onConnected(WebSocket websocket, Map<String, List<String>> headers) throws Exception {
-                super.onConnected(websocket, headers);
+                //super.onConnected(websocket, headers);
                 System.out.println("connected");
                 JSObject ret = new JSObject();
                 ret.put("headers", headers);
@@ -90,7 +83,7 @@ public class DggChatSocket extends Plugin {
 
             @Override
             public void onDisconnected(WebSocket websocket, WebSocketFrame serverCloseFrame, WebSocketFrame clientCloseFrame, boolean closedByServer) throws Exception {
-                super.onDisconnected(websocket, serverCloseFrame, clientCloseFrame, closedByServer);
+                //super.onDisconnected(websocket, serverCloseFrame, clientCloseFrame, closedByServer);
                 System.out.println("disconnected");
                 JSObject ret = new JSObject();
                 ret.put("closedByServer", closedByServer);
@@ -101,7 +94,7 @@ public class DggChatSocket extends Plugin {
 
             @Override
             public void onConnectError(WebSocket websocket, WebSocketException exception) throws Exception {
-                super.onConnectError(websocket, exception);
+                //super.onConnectError(websocket, exception);
                 JSObject ret = new JSObject();
                 ret.put("exception", exception);
                 notifyListeners("connecterror", ret);
@@ -109,7 +102,7 @@ public class DggChatSocket extends Plugin {
 
             @Override
             public void onError(WebSocket websocket, WebSocketException cause) throws Exception {
-                super.onError(websocket, cause);
+                //super.onError(websocket, cause);
                 JSObject ret = new JSObject();
                 ret.put("cause", cause);
                 notifyListeners("error", ret);
@@ -117,7 +110,7 @@ public class DggChatSocket extends Plugin {
 
             @Override
             public void onMessageError(WebSocket websocket, WebSocketException cause, List<WebSocketFrame> frames) throws Exception {
-                super.onMessageError(websocket, cause, frames);
+                //super.onMessageError(websocket, cause, frames);
                 JSObject ret = new JSObject();
                 ret.put("cause", cause);
                 ret.put("frame", frames);
@@ -126,7 +119,7 @@ public class DggChatSocket extends Plugin {
 
             @Override
             public void onSendError(WebSocket websocket, WebSocketException cause, WebSocketFrame frame) throws Exception {
-                super.onSendError(websocket, cause, frame);
+                //super.onSendError(websocket, cause, frame);
                 JSObject ret = new JSObject();
                 ret.put("cause", cause);
                 ret.put("frame", frame);
@@ -135,7 +128,7 @@ public class DggChatSocket extends Plugin {
 
             @Override
             public void onTextMessage(WebSocket websocket, byte[] data) throws Exception {
-                super.onTextMessage(websocket, data);
+                //super.onTextMessage(websocket, data);
                 JSObject ret = new JSObject();
                 ret.put("data", data);
                 notifyListeners("textmessage", ret);
@@ -143,37 +136,37 @@ public class DggChatSocket extends Plugin {
 
             @Override
             public void onTextMessageError(WebSocket websocket, WebSocketException cause, byte[] data) throws Exception {
-                super.onTextMessageError(websocket, cause, data);
+                //super.onTextMessageError(websocket, cause, data);
                 JSObject ret = new JSObject();
                 ret.put("data", data);
                 ret.put("cause", cause);
                 notifyListeners("textmessageerror", ret);
             }
         });
+        call.resolve();
     }
 
-    private void connect_local() throws WebSocketException {
+    @PluginMethod()
+    public void connect(PluginCall call) throws WebSocketException {
         if (!connected) {
             socket.connect();
             connected = true;
         }
+        call.resolve();
     }
 
-    private void disconnect_local() {
+    @PluginMethod()
+    public void disconnect(PluginCall call) {
         if (connected) {
             socket.disconnect();
             connected = false;
         }
+        call.resolve();
     }
 
-    private void build_local() throws IOException {
-        WebSocketFactory factory = new WebSocketFactory().setConnectionTimeout(5000);
-
-        socket = factory.createSocket("wss://chat.destiny.gg/ws");
-
-        socket.clearHeaders();
-        socket.addHeader("User-Agent", "NeoVisionariesWebSocket-Appstiny");
-        socket.addHeader("Origin", "https://www.destiny.gg");
-        socket.addHeader("Cookie", "authtoken=" + authToken);
+    @PluginMethod()
+    public void send(PluginCall call) {
+        socket.sendText(call.getString("data"));
+        call.resolve();
     }
 }

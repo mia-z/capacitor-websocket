@@ -283,9 +283,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@miaz/dgg-chat@workspace:.":
+"@miaz/capacitor-websocket@workspace:.":
   version: 0.0.0-use.local
-  resolution: "@miaz/dgg-chat@workspace:."
+  resolution: "@miaz/capacitor-websocket@workspace:."
   dependencies:
     "@capacitor/android": ^4.6.3
     "@capacitor/cli": ^4.6.3
