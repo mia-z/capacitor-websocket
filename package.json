@@ -1,5 +1,5 @@
 {
-  "name": "websocket",
+  "name": "@miaz/dgg-chat",
   "version": "0.0.1",
   "description": "Basic websocket for capacitor",
   "main": "dist/plugin.cjs.js",
@@ -37,14 +37,14 @@
     "eslint": "eslint . --ext ts",
     "prettier": "prettier \"**/*.{css,html,ts,js,java}\"",
     "swiftlint": "node-swiftlint",
-    "docgen": "docgen --api WebsocketPluginPlugin --output-readme README.md --output-json dist/docs.json",
+    "docgen": "docgen --api DggChatSocketPlugin --output-readme README.md --output-json dist/docs.json",
     "build": "npm run clean && npm run docgen && tsc && rollup -c rollup.config.js",
     "clean": "rimraf ./dist",
     "watch": "tsc --watch",
     "prepublishOnly": "npm run build"
   },
   "devDependencies": {
-    "@capacitor/android": "^4.0.0",
+    "@capacitor/android": "^4.6.3",
     "@capacitor/core": "^4.0.0",
     "@capacitor/docgen": "^0.0.18",
     "@capacitor/ios": "^4.0.0",
@@ -75,5 +75,8 @@
       "src": "android"
     }
   },
-  "packageManager": "yarn@3.4.1"
+  "packageManager": "yarn@3.4.1",
+  "dependencies": {
+    "@capacitor/cli": "^4.6.3"
+  }
 }

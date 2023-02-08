@@ -1,10 +1,10 @@
 import { registerPlugin } from "@capacitor/core";
 
-import type { WebsocketPluginPlugin } from "./definitions";
+import type { DggChatSocketPlugin } from "./definitions";
 
-const WebsocketPlugin = registerPlugin<WebsocketPluginPlugin>("WebsocketPlugin", {
-  web: () => import("./web").then(m => new m.WebsocketPluginWeb()),
+const DggChatSocket = registerPlugin<DggChatSocketPlugin>("DggChatSocket", {
+    web: () => import("./web").then(m => new m.DggChatSocketPluginWeb())
 });
 
 export * from "./definitions";
-export { WebsocketPlugin };
+export { DggChatSocket };
