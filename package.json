@@ -17,10 +17,10 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mia-z/capacitor-websocket.git"
+    "url": "git+https://github.com/mia-z/dgg-kotlin-websocket.git"
   },
   "bugs": {
-    "url": "https://github.com/mia-z/capacitor-websocket/issues"
+    "url": "https://github.com/mia-z/dgg-kotlin-websocket/issues"
   },
   "keywords": [
     "capacitor",
