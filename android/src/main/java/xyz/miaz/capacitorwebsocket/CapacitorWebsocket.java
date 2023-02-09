@@ -20,26 +20,29 @@ public class CapacitorWebsocket extends Plugin {
     @PluginMethod()
     public void build(PluginCall call) throws IOException {
         try {
-            SocketConnection socket = getSocket(call);
-            if (socket == null) {
+            String name = call.getString("name");
+            if (name == null || name.equals("")) {
                 call.reject("Must provide a socket name");
             }
 
+            sockets.remove(name);
+            
             String url = call.getString("url");
             WebSocketFactory factory = new WebSocketFactory().setConnectionTimeout(5000);
 
-            socket.socket = factory.createSocket(url);
+            WebSocket socket = factory.createSocket(url);
 
-            socket.socket.clearHeaders();
+            socket.clearHeaders();
 
             JSObject json = call.getObject("headers");
             for (Iterator<String> i = json.keys(); i.hasNext ();) {
                 String key = (String) i.next ();
                 Object val = json.get(key);
-                socket.socket.addHeader(key, (String) val);
+                socket.addHeader(key, (String) val);
                 System.out.println(String.format("key: %s, value: %s", key, val));
             }
 
+            sockets.put(name, new SocketConnection(socket));
             call.resolve();
         } catch (Exception e) {
             call.reject("Couldnt create socket");

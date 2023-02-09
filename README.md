@@ -13,8 +13,8 @@ npx cap sync
 
 <docgen-index>
 
-* [`connect()`](#connect)
-* [`disconnect()`](#disconnect)
+* [`connect(...)`](#connect)
+* [`disconnect(...)`](#disconnect)
 * [`send(...)`](#send)
 * [`applyListeners()`](#applylisteners)
 * [`build(...)`](#build)
@@ -37,20 +37,28 @@ npx cap sync
 <docgen-api>
 <!--Update the source file JSDoc comments and rerun docgen to update the docs below-->
 
-### connect()
+### connect(...)
 
 ```typescript
-connect() => Promise<void>
+connect(options: ConnectOptions) => Promise<void>
 ```
+
+| Param         | Type                                                |
+| ------------- | --------------------------------------------------- |
+| **`options`** | <code><a href="#optionsbase">OptionsBase</a></code> |
 
 --------------------
 
 
-### disconnect()
+### disconnect(...)
 
 ```typescript
-disconnect() => Promise<void>
+disconnect(options: DisconnectOptions) => Promise<void>
 ```
+
+| Param         | Type                                                |
+| ------------- | --------------------------------------------------- |
+| **`options`** | <code><a href="#optionsbase">OptionsBase</a></code> |
 
 --------------------
 
@@ -58,12 +66,12 @@ disconnect() => Promise<void>
 ### send(...)
 
 ```typescript
-send(options: { data: string; }) => Promise<void>
+send(options: SendOptions) => Promise<void>
 ```
 
-| Param         | Type                           |
-| ------------- | ------------------------------ |
-| **`options`** | <code>{ data: string; }</code> |
+| Param         | Type                                                |
+| ------------- | --------------------------------------------------- |
+| **`options`** | <code><a href="#sendoptions">SendOptions</a></code> |
 
 --------------------
 
@@ -80,12 +88,12 @@ applyListeners() => Promise<void>
 ### build(...)
 
 ```typescript
-build(options: buildOptions) => Promise<void>
+build(options: BuildOptions) => Promise<void>
 ```
 
 | Param         | Type                                                  |
 | ------------- | ----------------------------------------------------- |
-| **`options`** | <code><a href="#buildoptions">buildOptions</a></code> |
+| **`options`** | <code><a href="#buildoptions">BuildOptions</a></code> |
 
 --------------------
 
@@ -279,9 +287,29 @@ addListener(eventName: "textmessage", listenerFunc: (event: TextMessageEvent) =>
 ### Type Aliases
 
 
-#### buildOptions
+#### ConnectOptions
 
-<code>{ url: string, headers?: { [headerKey: string]: string, } }</code>
+<code><a href="#optionsbase">OptionsBase</a></code>
+
+
+#### OptionsBase
+
+<code>{ name: string, }</code>
+
+
+#### DisconnectOptions
+
+<code><a href="#optionsbase">OptionsBase</a></code>
+
+
+#### SendOptions
+
+<code><a href="#optionsbase">OptionsBase</a> & { data: any }</code>
+
+
+#### BuildOptions
+
+<code><a href="#optionsbase">OptionsBase</a> & { url: string, headers?: { [headerKey: string]: string, } }</code>
 
 
 #### MessageEvent
