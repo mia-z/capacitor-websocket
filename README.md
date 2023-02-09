@@ -16,7 +16,7 @@ npx cap sync
 * [`connect(...)`](#connect)
 * [`disconnect(...)`](#disconnect)
 * [`send(...)`](#send)
-* [`applyListeners()`](#applylisteners)
+* [`applyListeners(...)`](#applylisteners)
 * [`build(...)`](#build)
 * [`addListener('message', ...)`](#addlistenermessage)
 * [`addListener('connected', ...)`](#addlistenerconnected)
@@ -76,11 +76,15 @@ send(options: SendOptions) => Promise<void>
 --------------------
 
 
-### applyListeners()
+### applyListeners(...)
 
 ```typescript
-applyListeners() => Promise<void>
+applyListeners(options: ApplyListenersOptions) => Promise<void>
 ```
+
+| Param         | Type                                                |
+| ------------- | --------------------------------------------------- |
+| **`options`** | <code><a href="#optionsbase">OptionsBase</a></code> |
 
 --------------------
 
@@ -305,6 +309,11 @@ addListener(eventName: "textmessage", listenerFunc: (event: TextMessageEvent) =>
 #### SendOptions
 
 <code><a href="#optionsbase">OptionsBase</a> & { data: any }</code>
+
+
+#### ApplyListenersOptions
+
+<code><a href="#optionsbase">OptionsBase</a></code>
 
 
 #### BuildOptions

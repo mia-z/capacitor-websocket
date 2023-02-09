@@ -23,10 +23,11 @@ public class CapacitorWebsocket extends Plugin {
             String name = call.getString("name");
             if (name == null || name.equals("")) {
                 call.reject("Must provide a socket name");
+                return;
             }
 
             sockets.remove(name);
-            
+
             String url = call.getString("url");
             WebSocketFactory factory = new WebSocketFactory().setConnectionTimeout(5000);
 
@@ -54,6 +55,7 @@ public class CapacitorWebsocket extends Plugin {
         SocketConnection socket = getSocket(call);
         if (socket == null) {
             call.reject("Must provide a socket name");
+            return;
         }
 
         socket.socket.clearListeners();
@@ -164,6 +166,7 @@ public class CapacitorWebsocket extends Plugin {
         SocketConnection socket = getSocket(call);
         if (socket == null) {
             call.reject("Must provide a socket name");
+            return;
         }
 
         if (!socket.connected) {
@@ -178,6 +181,7 @@ public class CapacitorWebsocket extends Plugin {
         SocketConnection socket = getSocket(call);
         if (socket == null) {
             call.reject("Must provide a socket name");
+            return;
         }
 
         if (socket.connected) {
@@ -192,6 +196,7 @@ public class CapacitorWebsocket extends Plugin {
         SocketConnection socket = getSocket(call);
         if (socket == null) {
             call.reject("Must provide a socket name");
+            return;
         }
 
         socket.socket.sendText(call.getString("data"));
@@ -204,7 +209,7 @@ public class CapacitorWebsocket extends Plugin {
             call.reject("Must provide a socket name");
         } else {
             try {
-                SocketConnection ret = sockets.get("name");
+                SocketConnection ret = sockets.get(name);
                 if (ret == null) {
                     call.reject(String.format("Socket '%s' doesnt exist", name));
                 } else {
