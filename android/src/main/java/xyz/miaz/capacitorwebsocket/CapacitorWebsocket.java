@@ -8,30 +8,35 @@ import com.getcapacitor.annotation.CapacitorPlugin;
 import com.neovisionaries.ws.client.*;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
 @CapacitorPlugin(name = "CapacitorWebsocket")
 public class CapacitorWebsocket extends Plugin {
-    private WebSocket socket;
-    private boolean connected = false;
+    private HashMap<String, SocketConnection> sockets = new HashMap<>();
 
     @PluginMethod()
     public void build(PluginCall call) throws IOException {
         try {
+            SocketConnection socket = getSocket(call);
+            if (socket == null) {
+                call.reject("Must provide a socket name");
+            }
+
             String url = call.getString("url");
             WebSocketFactory factory = new WebSocketFactory().setConnectionTimeout(5000);
 
-            socket = factory.createSocket(url);
+            socket.socket = factory.createSocket(url);
 
-            socket.clearHeaders();
+            socket.socket.clearHeaders();
 
             JSObject json = call.getObject("headers");
             for (Iterator<String> i = json.keys(); i.hasNext ();) {
                 String key = (String) i.next ();
                 Object val = json.get(key);
-                socket.addHeader(key, (String) val);
+                socket.socket.addHeader(key, (String) val);
                 System.out.println(String.format("key: %s, value: %s", key, val));
             }
 
@@ -43,9 +48,14 @@ public class CapacitorWebsocket extends Plugin {
 
     @PluginMethod()
     public void applyListeners(PluginCall call) {
-        socket.clearListeners();
+        SocketConnection socket = getSocket(call);
+        if (socket == null) {
+            call.reject("Must provide a socket name");
+        }
 
-        socket.addListener(new WebSocketAdapter() {
+        socket.socket.clearListeners();
+
+        socket.socket.addListener(new WebSocketAdapter() {
             @Override
             public void onTextMessage(WebSocket websocket, String message) throws Exception {
                 //super.onTextMessage(websocket, message);
@@ -148,25 +158,67 @@ public class CapacitorWebsocket extends Plugin {
 
     @PluginMethod()
     public void connect(PluginCall call) throws WebSocketException {
-        if (!connected) {
-            socket.connect();
-            connected = true;
+        SocketConnection socket = getSocket(call);
+        if (socket == null) {
+            call.reject("Must provide a socket name");
+        }
+
+        if (!socket.connected) {
+            socket.socket.connect();
+            socket.connected = true;
         }
         call.resolve();
     }
 
     @PluginMethod()
     public void disconnect(PluginCall call) {
-        if (connected) {
-            socket.disconnect();
-            connected = false;
+        SocketConnection socket = getSocket(call);
+        if (socket == null) {
+            call.reject("Must provide a socket name");
+        }
+
+        if (socket.connected) {
+            socket.socket.disconnect();
+            socket.connected = false;
         }
         call.resolve();
     }
 
     @PluginMethod()
     public void send(PluginCall call) {
-        socket.sendText(call.getString("data"));
+        SocketConnection socket = getSocket(call);
+        if (socket == null) {
+            call.reject("Must provide a socket name");
+        }
+
+        socket.socket.sendText(call.getString("data"));
         call.resolve();
+    }
+
+    private SocketConnection getSocket(PluginCall call) {
+        String name = call.getString("name");
+        if (name == null) {
+            call.reject("Must provide a socket name");
+        } else {
+            try {
+                SocketConnection ret = sockets.get("name");
+                if (ret == null) {
+                    call.reject(String.format("Socket '%s' doesnt exist", name));
+                } else {
+                    return ret;
+                }
+            } catch (Exception e) {
+                call.reject("Exception when trying to get SocketConnection", e);
+            }
+        }
+        return null;
+    }
+}
+
+class SocketConnection {
+    public boolean connected = false;
+    public WebSocket socket;
+    public SocketConnection(WebSocket _socket) {
+        socket = _socket;
     }
 }
