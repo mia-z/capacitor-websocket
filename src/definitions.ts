@@ -70,11 +70,13 @@ export type ConnectOptions = OptionsBase;
 
 export type DisconnectOptions = OptionsBase;
 
+export type ApplyListenersOptions = OptionsBase;
+
 export interface CapacitorWebsocketPlugin extends Plugin {
     connect(options: ConnectOptions): Promise<void>;
     disconnect(options: DisconnectOptions): Promise<void>;
     send(options: SendOptions): Promise<void>;
-    applyListeners(): Promise<void>;
+    applyListeners(options: ApplyListenersOptions): Promise<void>;
     build(options: BuildOptions): Promise<void>;
     addListener(eventName: "message", listenerFunc: (event: MessageEvent) => void): Promise<PluginListenerHandle> & PluginListenerHandle;
     addListener(eventName: "connected", listenerFunc: (event: ConnectedEvent) => void): Promise<PluginListenerHandle> & PluginListenerHandle;
