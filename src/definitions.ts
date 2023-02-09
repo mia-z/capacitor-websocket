@@ -51,19 +51,31 @@ export type TextMessageErrorEvent = {
     cause: string
 }
 
-export type buildOptions = {
+export type OptionsBase = {
+    name: string,
+}
+
+export type BuildOptions = OptionsBase & {
     url: string,
     headers?: {
         [headerKey: string]: string,
     }
 }
 
+export type SendOptions = OptionsBase & {
+    data: any
+}
+
+export type ConnectOptions = OptionsBase;
+
+export type DisconnectOptions = OptionsBase;
+
 export interface CapacitorWebsocketPlugin extends Plugin {
-    connect(): Promise<void>;
-    disconnect(): Promise<void>;
-    send(options: { data: string }): Promise<void>;
+    connect(options: ConnectOptions): Promise<void>;
+    disconnect(options: DisconnectOptions): Promise<void>;
+    send(options: SendOptions): Promise<void>;
     applyListeners(): Promise<void>;
-    build(options: buildOptions): Promise<void>;
+    build(options: BuildOptions): Promise<void>;
     addListener(eventName: "message", listenerFunc: (event: MessageEvent) => void): Promise<PluginListenerHandle> & PluginListenerHandle;
     addListener(eventName: "connected", listenerFunc: (event: ConnectedEvent) => void): Promise<PluginListenerHandle> & PluginListenerHandle;
     addListener(eventName: "disconnected", listenerFunc: (event: DisconnectedEvent) => void): Promise<PluginListenerHandle> & PluginListenerHandle;
