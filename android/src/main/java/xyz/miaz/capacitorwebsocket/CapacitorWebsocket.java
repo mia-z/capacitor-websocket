@@ -50,16 +50,6 @@ public class CapacitorWebsocket extends Plugin {
         }
     }
 
-    @Override
-    public void addListener(PluginCall call) {
-        super.addListener(call);
-    }
-
-    @Override
-    protected void notifyListeners(String eventName, JSObject data) {
-        super.notifyListeners(eventName, data);
-    }
-
     @PluginMethod()
     public void applyListeners(PluginCall call) {
         SocketConnection socket = getSocket(call);
