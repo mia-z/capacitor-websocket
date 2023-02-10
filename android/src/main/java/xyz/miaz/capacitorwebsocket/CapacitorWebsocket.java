@@ -43,11 +43,21 @@ public class CapacitorWebsocket extends Plugin {
                 System.out.println(String.format("key: %s, value: %s", key, val));
             }
 
-            sockets.put(name, new SocketConnection(socket));
+            sockets.put(name, new SocketConnection(socket, name));
             call.resolve();
         } catch (Exception e) {
             call.reject("Couldnt create socket");
         }
+    }
+
+    @Override
+    public void addListener(PluginCall call) {
+        super.addListener(call);
+    }
+
+    @Override
+    protected void notifyListeners(String eventName, JSObject data) {
+        super.notifyListeners(eventName, data);
     }
 
     @PluginMethod()
@@ -66,7 +76,7 @@ public class CapacitorWebsocket extends Plugin {
                 //super.onTextMessage(websocket, message);
                 JSObject ret = new JSObject();
                 ret.put("data", message);
-                notifyListeners("message", ret);
+                notifyListeners(String.format("%s:message", socket.name), ret);
             }
 
             @Override
@@ -75,7 +85,7 @@ public class CapacitorWebsocket extends Plugin {
                 System.out.println(newState);
                 JSObject ret = new JSObject();
                 ret.put("state", newState);
-                notifyListeners("statechanged", ret);
+                notifyListeners(String.format("%s:statechanged", socket.name), ret);
             }
 
             @Override
@@ -84,7 +94,7 @@ public class CapacitorWebsocket extends Plugin {
                 System.out.println("close frame");
                 JSObject ret = new JSObject();
                 ret.put("frame", frame);
-                notifyListeners("closeframe", ret);
+                notifyListeners(String.format("%s:closeframe", socket.name), ret);
             }
 
             @Override
@@ -93,7 +103,7 @@ public class CapacitorWebsocket extends Plugin {
                 System.out.println("connected");
                 JSObject ret = new JSObject();
                 ret.put("headers", headers);
-                notifyListeners("connected", ret);
+                notifyListeners(String.format("%s:connected", socket.name), ret);
             }
 
             @Override
@@ -104,7 +114,7 @@ public class CapacitorWebsocket extends Plugin {
                 ret.put("closedByServer", closedByServer);
                 ret.put("serverCloseFrame", serverCloseFrame);
                 ret.put("clientCloseFrame", clientCloseFrame);
-                notifyListeners("disconnected", ret);
+                notifyListeners(String.format("%s:disconnected", socket.name), ret);
             }
 
             @Override
@@ -112,7 +122,7 @@ public class CapacitorWebsocket extends Plugin {
                 //super.onConnectError(websocket, exception);
                 JSObject ret = new JSObject();
                 ret.put("exception", exception);
-                notifyListeners("connecterror", ret);
+                notifyListeners(String.format("%s:connecterror", socket.name), ret);
             }
 
             @Override
@@ -120,7 +130,7 @@ public class CapacitorWebsocket extends Plugin {
                 //super.onError(websocket, cause);
                 JSObject ret = new JSObject();
                 ret.put("cause", cause);
-                notifyListeners("error", ret);
+                notifyListeners(String.format("%s:error", socket.name), ret);
             }
 
             @Override
@@ -129,7 +139,7 @@ public class CapacitorWebsocket extends Plugin {
                 JSObject ret = new JSObject();
                 ret.put("cause", cause);
                 ret.put("frame", frames);
-                notifyListeners("messageerror", ret);
+                notifyListeners(String.format("%s:messageerror", socket.name), ret);
             }
 
             @Override
@@ -138,7 +148,7 @@ public class CapacitorWebsocket extends Plugin {
                 JSObject ret = new JSObject();
                 ret.put("cause", cause);
                 ret.put("frame", frame);
-                notifyListeners("senderror", ret);
+                notifyListeners(String.format("%s:senderror", socket.name), ret);
             }
 
             @Override
@@ -146,7 +156,7 @@ public class CapacitorWebsocket extends Plugin {
                 //super.onTextMessage(websocket, data);
                 JSObject ret = new JSObject();
                 ret.put("data", data);
-                notifyListeners("textmessage", ret);
+                notifyListeners(String.format("%s:textmessage", socket.name), ret);
             }
 
             @Override
@@ -155,7 +165,7 @@ public class CapacitorWebsocket extends Plugin {
                 JSObject ret = new JSObject();
                 ret.put("data", data);
                 ret.put("cause", cause);
-                notifyListeners("textmessageerror", ret);
+                notifyListeners(String.format("%s:textmessageerror", socket.name), ret);
             }
         });
         call.resolve();
@@ -226,7 +236,9 @@ public class CapacitorWebsocket extends Plugin {
 class SocketConnection {
     public boolean connected = false;
     public WebSocket socket;
-    public SocketConnection(WebSocket _socket) {
+    final String name;
+    public SocketConnection(WebSocket _socket, String _name) {
         socket = _socket;
+        name = _name;
     }
 }

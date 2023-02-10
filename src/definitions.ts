@@ -1,4 +1,4 @@
-import type { PluginListenerHandle, Plugin } from '@capacitor/core';
+import type { PluginListenerHandle, Plugin } from "@capacitor/core";
 
 export type MessageEvent = {
     data: string
@@ -78,15 +78,15 @@ export interface CapacitorWebsocketPlugin extends Plugin {
     send(options: SendOptions): Promise<void>;
     applyListeners(options: ApplyListenersOptions): Promise<void>;
     build(options: BuildOptions): Promise<void>;
-    addListener(eventName: "message", listenerFunc: (event: MessageEvent) => void): Promise<PluginListenerHandle> & PluginListenerHandle;
-    addListener(eventName: "connected", listenerFunc: (event: ConnectedEvent) => void): Promise<PluginListenerHandle> & PluginListenerHandle;
-    addListener(eventName: "disconnected", listenerFunc: (event: DisconnectedEvent) => void): Promise<PluginListenerHandle> & PluginListenerHandle;
-    addListener(eventName: "statechange",listenerFunc: (event: StateChangedEvent) => void): Promise<PluginListenerHandle> & PluginListenerHandle;
-    addListener(eventName: "closeframe",listenerFunc: (event: CloseFrameEvent) => void): Promise<PluginListenerHandle> & PluginListenerHandle;
-    addListener(eventName: "connecterror",listenerFunc: (event: ConnectErrorEvent) => void): Promise<PluginListenerHandle> & PluginListenerHandle;
-    addListener(eventName: "error",listenerFunc: (event: ErrorEvent) => void): Promise<PluginListenerHandle> & PluginListenerHandle;
-    addListener(eventName: "messageerror",listenerFunc: (event: MessageErrorEvent) => void): Promise<PluginListenerHandle> & PluginListenerHandle;
-    addListener(eventName: "senderror",listenerFunc: (event: SendErrorEvent) => void): Promise<PluginListenerHandle> & PluginListenerHandle;
-    addListener(eventName: "textmessageerror",listenerFunc: (event: TextMessageErrorEvent) => void): Promise<PluginListenerHandle> & PluginListenerHandle;
-    addListener(eventName: "textmessage",listenerFunc: (event: TextMessageEvent) => void): Promise<PluginListenerHandle> & PluginListenerHandle;
+    addListener<T>(eventName: `${string & keyof T}:message`, listenerFunc: (event: MessageEvent) => void): Promise<PluginListenerHandle> & PluginListenerHandle;
+    addListener<T>(eventName: `${string & keyof T}:connected`, listenerFunc: (event: ConnectedEvent) => void): Promise<PluginListenerHandle> & PluginListenerHandle;
+    addListener<T>(eventName: `${string & keyof T}:disconnected`, listenerFunc: (event: DisconnectedEvent) => void): Promise<PluginListenerHandle> & PluginListenerHandle;
+    addListener<T>(eventName: `${string & keyof T}:statechange`,listenerFunc: (event: StateChangedEvent) => void): Promise<PluginListenerHandle> & PluginListenerHandle;
+    addListener<T>(eventName: `${string & keyof T}:closeframe`,listenerFunc: (event: CloseFrameEvent) => void): Promise<PluginListenerHandle> & PluginListenerHandle;
+    addListener<T>(eventName: `${string & keyof T}:connecterror`,listenerFunc: (event: ConnectErrorEvent) => void): Promise<PluginListenerHandle> & PluginListenerHandle;
+    addListener<T>(eventName: `${string & keyof T}:error`,listenerFunc: (event: ErrorEvent) => void): Promise<PluginListenerHandle> & PluginListenerHandle;
+    addListener<T>(eventName: `${string & keyof T}:messageerror`,listenerFunc: (event: MessageErrorEvent) => void): Promise<PluginListenerHandle> & PluginListenerHandle;
+    addListener<T>(eventName: `${string & keyof T}:senderror`,listenerFunc: (event: SendErrorEvent) => void): Promise<PluginListenerHandle> & PluginListenerHandle;
+    addListener<T>(eventName: `${string & keyof T}:textmessageerror`,listenerFunc: (event: TextMessageErrorEvent) => void): Promise<PluginListenerHandle> & PluginListenerHandle;
+    addListener<T>(eventName: `${string & keyof T}:textmessage`,listenerFunc: (event: TextMessageEvent) => void): Promise<PluginListenerHandle> & PluginListenerHandle;
 }
