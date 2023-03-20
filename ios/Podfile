@@ -9,6 +9,7 @@ end
 
 target 'Plugin' do
   capacitor_pods
+  pod 'NWWebSocket', '~> 0.5.2'
 end
 
 target 'PluginTests' do
