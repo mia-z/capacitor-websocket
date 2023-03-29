@@ -1,6 +1,6 @@
 {
   "name": "@miaz/capacitor-websocket",
-  "version": "0.2.7",
+  "version": "0.4.0",
   "description": "Basic websocket for capacitor",
   "main": "dist/plugin.cjs.js",
   "module": "dist/esm/index.js",
