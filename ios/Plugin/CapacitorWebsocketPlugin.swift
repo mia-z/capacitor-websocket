@@ -1,8 +1,7 @@
 import Foundation
 import Capacitor
 import Network
-import NWWebSocket
-
+import Starscream
 @objc(CapacitorWebsocketPlugin)
 public class CapacitorWebsocketPlugin: CAPPlugin {
     var connections: [String: SocketConnection] = [:]
@@ -18,18 +17,17 @@ public class CapacitorWebsocketPlugin: CAPPlugin {
             return
         }
 
-        let config: NWProtocolWebSocket.Options = NWProtocolWebSocket.Options()
-
-        if let headers = call.getObject("headers") {
-            var newHeaders: [(String, String)] = []
-            for (key, value) in headers {
-                newHeaders.append((key, value as! String))
-            }
-            config.setAdditionalHeaders(newHeaders)
-        }
         guard let socketURL = URL(string: url) else { call.reject("Couldnt make socket: url parse error"); return }
 
-        connections[name] = SocketConnection.init(name: name, plugin: self, socket: NWWebSocket(url: socketURL))
+        var req = URLRequest(url: socketURL);
+        
+        if let headers = call.getObject("headers") {
+            for (key, value) in headers {
+                req.addValue(value as! String, forHTTPHeaderField: key)
+            }
+        }
+        
+        connections[name] = SocketConnection.init(name: name, plugin: self, request: req)
         call.resolve()
     }
 
@@ -57,7 +55,7 @@ public class CapacitorWebsocketPlugin: CAPPlugin {
             call.reject("Must provide data to send")
             return
         }
-        connection.socket?.send(string: message)
+        connection.socket?.write(string: message)
         call.resolve()
     }
 
