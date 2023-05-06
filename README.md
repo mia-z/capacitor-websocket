@@ -1,12 +1,10 @@
 # websocket
 
-Very basic Android native (so far) websocket implementation for Capacitor, using NeoVisionaries (NV-WebSocket)
+Basic, cross-platform native websocket implementation for Capacitor/Ionic.
 
-Doesnt have much redundancy or features. You can provide a URL and headers you wish to pass to the socket. 
-
-As mentioned, only implemented for Android. 
-
-Contributions are always welcome - especially for Swift/Web implementation. 
+- iOS/Swift implmentation uses [StarScream](/https://github.com/daltoniam/Starscream)
+- Android/Java uses [NV/NeoVisionaries Websocket Client](/https://github.com/TakahikoKawasaki/nv-websocket-client)
+- Web implementation uses web native websockets
 
 ## Install
 
