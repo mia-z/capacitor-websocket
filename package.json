@@ -1,5 +1,5 @@
 {
-  "name": "@miaz/capacitor-websocket",
+  "name": "@nesto-software/capacitor-websocket",
   "version": "1.0.0",
   "description": "Basic websocket for capacitor",
   "main": "dist/plugin.cjs.js",
