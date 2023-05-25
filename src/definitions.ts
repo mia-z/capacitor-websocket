@@ -90,3 +90,10 @@ export interface CapacitorWebsocketPlugin extends Plugin {
     addListener<T extends string>(eventName: `${T}:textmessageerror`,listenerFunc: (event: TextMessageErrorEvent) => void): Promise<PluginListenerHandle> & PluginListenerHandle;
     addListener<T extends string>(eventName: `${T}:textmessage`,listenerFunc: (event: TextMessageEvent) => void): Promise<PluginListenerHandle> & PluginListenerHandle;
 }
+
+export type SocketMetadata = { 
+    socket: WebSocket | null, 
+    name: string, 
+    url: string, 
+    connected: boolean 
+};

@@ -1,6 +1,6 @@
 {
-  "name": "@nesto-software/capacitor-websocket",
-  "version": "1.0.0",
+  "name": "@miaz/capacitor-websocket",
+  "version": "0.5.0",
   "description": "Basic websocket for capacitor",
   "main": "dist/plugin.cjs.js",
   "module": "dist/esm/index.js",
@@ -20,10 +20,10 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nesto-software/capacitor-websocket.git"
+    "url": "git+https://github.com/mia-z/capacitor-websocket.git"
   },
   "bugs": {
-    "url": "https://github.com/nesto-software/capacitor-websocket/issues"
+    "url": "https://github.com/mia-z/capacitor-websocket/issues"
   },
   "keywords": [
     "capacitor",

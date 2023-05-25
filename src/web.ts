@@ -1,13 +1,7 @@
 import { WebPlugin } from "@capacitor/core";
+import { SocketMetadata } from "./definitions";
 
 import type { BuildOptions, CapacitorWebsocketPlugin, OptionsBase, SendOptions } from "./definitions";
-
-type SocketMetadata = { 
-    socket: WebSocket | null, 
-    name: string, 
-    url: string, 
-    connected: boolean 
-};
 
 export class CapacitorWebsocketPluginWeb extends WebPlugin implements CapacitorWebsocketPlugin {
     private sockets: SocketMetadata[] = [];
