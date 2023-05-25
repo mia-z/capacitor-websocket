@@ -43,6 +43,7 @@ export class CapacitorWebsocketPluginWeb extends WebPlugin implements CapacitorW
         if (s.OPEN) {
             console.log(`${sockMeta.name} connected.`);
             sockMeta.connected = true;
+            sockMeta.socket = s;
             this.notifyListeners(`${options.name}:connected`, null);
             return;
         }
