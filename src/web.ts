@@ -56,7 +56,7 @@ export class CapacitorWebsocketPluginWeb extends WebPlugin implements CapacitorW
         const sockMeta = this.getSocketMetadata(sIndex);
 
         if (!sockMeta.connected || !sockMeta.socket) {
-            throw new Error("Tried to disconnect an already disconnected socket!");
+            throw new Error("Tried to disconnect an already disconnected or not yet connected socket!");
         }
 
         sockMeta.connected = false;
