@@ -1,6 +1,6 @@
 {
   "name": "@miaz/capacitor-websocket",
-  "version": "0.5.0",
+  "version": "1.0.0",
   "description": "Basic websocket for capacitor",
   "main": "dist/plugin.cjs.js",
   "module": "dist/esm/index.js",
@@ -14,13 +14,16 @@
     "MiazCapacitorWebsocket.podspec"
   ],
   "author": "Ryan",
+  "contributors": [
+    "Martin Loeper <martin.loeper@nesto-software.de>"
+  ],
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mia-z/capacitor-websocket.git"
+    "url": "git+https://github.com/nesto-software/capacitor-websocket.git"
   },
   "bugs": {
-    "url": "https://github.com/mia-z/capacitor-websocket/issues"
+    "url": "https://github.com/nesto-software/capacitor-websocket/issues"
   },
   "keywords": [
     "capacitor",
@@ -57,7 +60,7 @@
     "rimraf": "^3.0.2",
     "rollup": "^2.32.0",
     "swiftlint": "^1.0.1",
-    "typescript": "~4.1.5"
+    "typescript": "5.0.4"
   },
   "peerDependencies": {
     "@capacitor/core": "^4.0.0"

@@ -90,14 +90,3 @@ export interface CapacitorWebsocketPlugin extends Plugin {
     addListener<T extends string>(eventName: `${T}:textmessageerror`,listenerFunc: (event: TextMessageErrorEvent) => void): Promise<PluginListenerHandle> & PluginListenerHandle;
     addListener<T extends string>(eventName: `${T}:textmessage`,listenerFunc: (event: TextMessageEvent) => void): Promise<PluginListenerHandle> & PluginListenerHandle;
 }
-
-export class SocketConnection {
-    socket: WebSocket;
-    name: string; 
-    connected = false;
-
-    constructor(socket: WebSocket, name: string) {
-        this.socket = socket;
-        this.name = name;
-    }
-}
