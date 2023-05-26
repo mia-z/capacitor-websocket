@@ -14,6 +14,9 @@
     "MiazCapacitorWebsocket.podspec"
   ],
   "author": "Ryan",
+  "contributors": [
+    "Martin Loeper <martin.loeper@nesto-software.de>"
+  ],
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -57,7 +60,7 @@
     "rimraf": "^3.0.2",
     "rollup": "^2.32.0",
     "swiftlint": "^1.0.1",
-    "typescript": "~4.1.5"
+    "typescript": "5.0.4"
   },
   "peerDependencies": {
     "@capacitor/core": "^4.0.0"
