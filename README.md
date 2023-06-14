@@ -313,7 +313,7 @@ addListener<T extends string>(eventName: `${T}:textmessage`, listenerFunc: (even
 
 #### OptionsBase
 
-<code>{ name: string, }</code>
+<code>{ name: string, }</code>
 
 
 #### DisconnectOptions
@@ -323,7 +323,7 @@ addListener<T extends string>(eventName: `${T}:textmessage`, listenerFunc: (even
 
 #### SendOptions
 
-<code><a href="#optionsbase">OptionsBase</a> & { data: any }</code>
+<code><a href="#optionsbase">OptionsBase</a> & { data: any }</code>
 
 
 #### ApplyListenersOptions
@@ -333,61 +333,61 @@ addListener<T extends string>(eventName: `${T}:textmessage`, listenerFunc: (even
 
 #### BuildOptions
 
-<code><a href="#optionsbase">OptionsBase</a> & { url: string, headers?: { [headerKey: string]: string, } }</code>
+<code><a href="#optionsbase">OptionsBase</a> & { url: string, headers?: { [headerKey: string]: string, } }</code>
 
 
 #### MessageEvent
 
-<code>{ data: string }</code>
+<code>{ data: string }</code>
 
 
 #### ConnectedEvent
 
-<code>{ headers: { [x: string]: string[] } }</code>
+<code>{ headers: { [x: string]: string[] } }</code>
 
 
 #### DisconnectedEvent
 
-<code>{ closedByServer: boolean, serverCloseFrame: string, clientCloseFrame: string }</code>
+<code>{ closedByServer: boolean, serverCloseFrame: string, clientCloseFrame: string }</code>
 
 
 #### StateChangedEvent
 
-<code>{ state: string }</code>
+<code>{ state: string }</code>
 
 
 #### CloseFrameEvent
 
-<code>{ frame: string }</code>
+<code>{ frame: string }</code>
 
 
 #### ConnectErrorEvent
 
-<code>{ exception: string }</code>
+<code>{ exception: string }</code>
 
 
 #### ErrorEvent
 
-<code>{ cause: string }</code>
+<code>{ cause: string }</code>
 
 
 #### MessageErrorEvent
 
-<code>{ cause: string, frame: string }</code>
+<code>{ cause: string, frame: string }</code>
 
 
 #### SendErrorEvent
 
-<code>{ cause: string, frame: string }</code>
+<code>{ cause: string, frame: string }</code>
 
 
 #### TextMessageErrorEvent
 
-<code>{ data: string, cause: string }</code>
+<code>{ data: string,  cause: string }</code>
 
 
 #### TextMessageEvent
 
-<code>{ data: string }</code>
+<code>{ data: string }</code>
 
 </docgen-api>

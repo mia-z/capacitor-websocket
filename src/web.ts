@@ -11,7 +11,6 @@ export class CapacitorWebsocketPluginWeb extends WebPlugin implements CapacitorW
         const sockMeta = this.getSocketMetadata(sIndex);
 
         console.log(sockMeta.name + " is connecting");
-
         let count = 0;
         const s = new WebSocket(sockMeta.url);
 
@@ -22,25 +21,29 @@ export class CapacitorWebsocketPluginWeb extends WebPlugin implements CapacitorW
             sockMeta.socket = null;
         }
 
-        s.onerror = () => {
-            this.notifyListeners(`${options.name}:error`, null);
+        s.onerror = (err) => {
+            this.notifyListeners(`${options.name}:error`, err);
         }
 
         s.onmessage = (data: any) => {
             this.notifyListeners(`${options.name}:message`, data);
         }
 
-        while(s.CONNECTING || s.CLOSING) {
+        s.onopen = (data: Event) => {
+            this.notifyListeners(`${options.name}:connected`, data);
+        }
+
+        while(s.readyState === 0 || count < 20) {
             await timeout(500);
             count++;
-            if (count > 20) break;
+            if (count > 19 || s.readyState !== 0) break;
         }
 
         if (count === 20) {
             throw new Error("Socket timeout (10s)");
         }
 
-        if (s.OPEN) {
+        if (s.readyState === s.OPEN) {
             console.log(`${sockMeta.name} connected.`);
             sockMeta.connected = true;
             sockMeta.socket = s;
