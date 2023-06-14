@@ -1,6 +1,6 @@
 {
   "name": "@miaz/capacitor-websocket",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "description": "Basic websocket for capacitor",
   "main": "dist/plugin.cjs.js",
   "module": "dist/esm/index.js",
@@ -78,7 +78,7 @@
       "src": "android"
     }
   },
-  "packageManager": "yarn@3.4.1",
+  "packageManager": "yarn@3.6.0",
   "dependencies": {
     "@capacitor/cli": "^4.6.3"
   }

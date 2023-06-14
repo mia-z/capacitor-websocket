@@ -37,7 +37,7 @@ public class CapacitorWebsocket extends Plugin {
 
             JSObject json = call.getObject("headers");
             for (Iterator<String> i = json.keys(); i.hasNext ();) {
-                String key = (String) i.next ();
+                String key = i.next();
                 Object val = json.get(key);
                 socket.addHeader(key, (String) val);
                 System.out.println(String.format("key: %s, value: %s", key, val));
