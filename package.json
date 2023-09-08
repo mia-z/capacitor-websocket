@@ -1,6 +1,6 @@
 {
   "name": "@miaz/capacitor-websocket",
-  "version": "0.5.1",
+  "version": "0.6.0",
   "description": "Basic websocket for capacitor",
   "main": "dist/plugin.cjs.js",
   "module": "dist/esm/index.js",
@@ -48,7 +48,6 @@
   },
   "devDependencies": {
     "@capacitor/android": "^4.6.3",
-    "@capacitor/core": "^4.0.0",
     "@capacitor/docgen": "^0.0.18",
     "@capacitor/ios": "^4.0.0",
     "@ionic/eslint-config": "^0.3.0",
@@ -61,9 +60,6 @@
     "rollup": "^2.32.0",
     "swiftlint": "^1.0.1",
     "typescript": "5.0.4"
-  },
-  "peerDependencies": {
-    "@capacitor/core": "^4.0.0"
   },
   "prettier": "@ionic/prettier-config",
   "swiftlint": "@ionic/swiftlint-config",
@@ -80,6 +76,7 @@
   },
   "packageManager": "yarn@3.6.0",
   "dependencies": {
-    "@capacitor/cli": "^4.6.3"
+    "@capacitor/cli": "^5.3.0",
+    "@capacitor/core": "^5.3.0"
   }
 }
