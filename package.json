@@ -4,6 +4,7 @@
   "description": "Basic websocket for capacitor",
   "main": "dist/plugin.cjs.js",
   "module": "dist/esm/index.js",
+  "type": "module",
   "types": "dist/esm/index.d.ts",
   "unpkg": "dist/plugin.js",
   "files": [
@@ -47,19 +48,19 @@
     "prepublishOnly": "npm run build"
   },
   "devDependencies": {
-    "@capacitor/android": "^4.6.3",
-    "@capacitor/docgen": "^0.0.18",
-    "@capacitor/ios": "^4.0.0",
+    "@capacitor/android": "^5.3.0",
+    "@capacitor/docgen": "^0.2.1",
+    "@capacitor/ios": "^5.3.0",
     "@ionic/eslint-config": "^0.3.0",
-    "@ionic/prettier-config": "^1.0.1",
+    "@ionic/prettier-config": "^4.0.0",
     "@ionic/swiftlint-config": "^1.1.2",
     "eslint": "^7.11.0",
     "prettier": "~2.3.0",
     "prettier-plugin-java": "~1.0.2",
-    "rimraf": "^3.0.2",
-    "rollup": "^2.32.0",
-    "swiftlint": "^1.0.1",
-    "typescript": "5.0.4"
+    "rimraf": "^5.0.1",
+    "rollup": "^3.29.0",
+    "swiftlint": "^1.0.2",
+    "typescript": "5.2.2"
   },
   "prettier": "@ionic/prettier-config",
   "swiftlint": "@ionic/swiftlint-config",

@@ -41,12 +41,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@capacitor/android@npm:^4.6.3":
-  version: 4.6.3
-  resolution: "@capacitor/android@npm:4.6.3"
+"@capacitor/android@npm:^5.3.0":
+  version: 5.3.0
+  resolution: "@capacitor/android@npm:5.3.0"
   peerDependencies:
-    "@capacitor/core": ^4.6.0
-  checksum: 81a14f9cae36d8b34a0b5340ce5536ef802db3b48b4b5526491dcd353a403ab2ceaff967d787533b957e678a793a696a1cbcb11635ebe942c30a3c5f41a633f0
+    "@capacitor/core": ^5.3.0
+  checksum: f8ab19135943cbec1f75e210ab814272219fd04c6b0c66e9a548d3d92f6dd1ad0cea25846dc49ddf3a4a9e91c06df9edc91c201260e183770e124dff0b7dd382
   languageName: node
   linkType: hard
 
@@ -87,27 +87,27 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@capacitor/docgen@npm:^0.0.18":
-  version: 0.0.18
-  resolution: "@capacitor/docgen@npm:0.0.18"
+"@capacitor/docgen@npm:^0.2.1":
+  version: 0.2.1
+  resolution: "@capacitor/docgen@npm:0.2.1"
   dependencies:
-    "@types/node": ^14.17.3
-    colorette: ^1.2.2
-    github-slugger: ^1.3.0
+    "@types/node": ^14.18.0
+    colorette: ^2.0.16
+    github-slugger: ^1.4.0
     minimist: ^1.2.5
     typescript: ~4.2.4
   bin:
     docgen: bin/docgen
-  checksum: d37e4f9820a22d3d5621fb5c4fc14e39e43299381ea4be29ad7a2b72cba31a7ae572a820f5f16b2bed19b14147b423c6cab6c61310e694e67fdc21a8ec7dae90
+  checksum: 590ae48e6cb2bc99303ca19bafeae0bb603afdc006f3ec6b44ab4f2e27e7613bf02f4b6c418673aee7300c47278cd1b27d00d68f2b04c0194952138fd96ea5e1
   languageName: node
   linkType: hard
 
-"@capacitor/ios@npm:^4.0.0":
-  version: 4.6.3
-  resolution: "@capacitor/ios@npm:4.6.3"
+"@capacitor/ios@npm:^5.3.0":
+  version: 5.3.0
+  resolution: "@capacitor/ios@npm:5.3.0"
   peerDependencies:
-    "@capacitor/core": ^4.6.0
-  checksum: ad13148c0a9f01d9251b0d93db909220d01b6f9cc2a5c8d0a9744b18ecafed57451f4d54a820b6d0a4a266106421fd878e959b872c9a9b8f64998e9998578183
+    "@capacitor/core": ^5.3.0
+  checksum: 1a2eba83001358688208c8c50ba91ef21e16fadf481e4fdea4e5d744f1430318786107359e17f44b9c46c7d6bebd4ac5cbfcfac619132b4283367bfd50885057
   languageName: node
   linkType: hard
 
@@ -178,12 +178,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ionic/prettier-config@npm:^1.0.1":
-  version: 1.0.1
-  resolution: "@ionic/prettier-config@npm:1.0.1"
+"@ionic/prettier-config@npm:^4.0.0":
+  version: 4.0.0
+  resolution: "@ionic/prettier-config@npm:4.0.0"
   peerDependencies:
-    prettier: ^2.0.0
-  checksum: e909092e721543f2ac04809b5a84ed784a2d8911f83e1d4e08eed3037d30dbf3be9c486fb4cff533c1b8069e3d06d3ad61b56be8cba8c35a0606644de99d2a33
+    prettier: ^2.4.0 || ^3.0.0
+  checksum: 572328297efabda9b59ea7d61a884b6a5b7bc561a260f71a890510192b0ea5ffdf74cd20a74d330d8d2f63e93987013966d7db86c4378e23ec9917dc241de1de
   languageName: node
   linkType: hard
 
@@ -214,7 +214,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ionic/utils-fs@npm:3.1.6, @ionic/utils-fs@npm:^3.1.3":
+"@ionic/utils-fs@npm:3.1.6":
   version: 3.1.6
   resolution: "@ionic/utils-fs@npm:3.1.6"
   dependencies:
@@ -306,6 +306,22 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@ionic/utils-subprocess@npm:2.1.11":
+  version: 2.1.11
+  resolution: "@ionic/utils-subprocess@npm:2.1.11"
+  dependencies:
+    "@ionic/utils-array": 2.1.5
+    "@ionic/utils-fs": 3.1.6
+    "@ionic/utils-process": 2.1.10
+    "@ionic/utils-stream": 3.1.5
+    "@ionic/utils-terminal": 2.3.3
+    cross-spawn: ^7.0.3
+    debug: ^4.0.0
+    tslib: ^2.0.1
+  checksum: f93be70bd164c1386bf4323ebdf6e8672bd0b677cee302d4952162229253639ec3eefd78b955afa752b2571f567e13e4635c23d51969e7d565cfd12b7a0b7df7
+  languageName: node
+  linkType: hard
+
 "@ionic/utils-subprocess@npm:^2.1.11":
   version: 2.1.12
   resolution: "@ionic/utils-subprocess@npm:2.1.12"
@@ -319,22 +335,6 @@ __metadata:
     debug: ^4.0.0
     tslib: ^2.0.1
   checksum: 2821e535d747e5b84addc0e4737211216190cb9e5563ee973b1eeed329f8114026ac238322ff37fecb13b5e5dc2556de3a7b11aaf265b95f572075e00695e6f6
-  languageName: node
-  linkType: hard
-
-"@ionic/utils-subprocess@npm:^2.1.3":
-  version: 2.1.11
-  resolution: "@ionic/utils-subprocess@npm:2.1.11"
-  dependencies:
-    "@ionic/utils-array": 2.1.5
-    "@ionic/utils-fs": 3.1.6
-    "@ionic/utils-process": 2.1.10
-    "@ionic/utils-stream": 3.1.5
-    "@ionic/utils-terminal": 2.3.3
-    cross-spawn: ^7.0.3
-    debug: ^4.0.0
-    tslib: ^2.0.1
-  checksum: f93be70bd164c1386bf4323ebdf6e8672bd0b677cee302d4952162229253639ec3eefd78b955afa752b2571f567e13e4635c23d51969e7d565cfd12b7a0b7df7
   languageName: node
   linkType: hard
 
@@ -372,25 +372,39 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@isaacs/cliui@npm:^8.0.2":
+  version: 8.0.2
+  resolution: "@isaacs/cliui@npm:8.0.2"
+  dependencies:
+    string-width: ^5.1.2
+    string-width-cjs: "npm:string-width@^4.2.0"
+    strip-ansi: ^7.0.1
+    strip-ansi-cjs: "npm:strip-ansi@^6.0.1"
+    wrap-ansi: ^8.1.0
+    wrap-ansi-cjs: "npm:wrap-ansi@^7.0.0"
+  checksum: 4a473b9b32a7d4d3cfb7a614226e555091ff0c5a29a1734c28c72a182c2f6699b26fc6b5c2131dfd841e86b185aea714c72201d7c98c2fba5f17709333a67aeb
+  languageName: node
+  linkType: hard
+
 "@miaz/capacitor-websocket@workspace:.":
   version: 0.0.0-use.local
   resolution: "@miaz/capacitor-websocket@workspace:."
   dependencies:
-    "@capacitor/android": ^4.6.3
+    "@capacitor/android": ^5.3.0
     "@capacitor/cli": ^5.3.0
     "@capacitor/core": ^5.3.0
-    "@capacitor/docgen": ^0.0.18
-    "@capacitor/ios": ^4.0.0
+    "@capacitor/docgen": ^0.2.1
+    "@capacitor/ios": ^5.3.0
     "@ionic/eslint-config": ^0.3.0
-    "@ionic/prettier-config": ^1.0.1
+    "@ionic/prettier-config": ^4.0.0
     "@ionic/swiftlint-config": ^1.1.2
     eslint: ^7.11.0
     prettier: ~2.3.0
     prettier-plugin-java: ~1.0.2
-    rimraf: ^3.0.2
-    rollup: ^2.32.0
-    swiftlint: ^1.0.1
-    typescript: 5.0.4
+    rimraf: ^5.0.1
+    rollup: ^3.29.0
+    swiftlint: ^1.0.2
+    typescript: 5.2.2
   languageName: unknown
   linkType: soft
 
@@ -441,6 +455,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@pkgjs/parseargs@npm:^0.11.0":
+  version: 0.11.0
+  resolution: "@pkgjs/parseargs@npm:0.11.0"
+  checksum: 6ad6a00fc4f2f2cfc6bff76fb1d88b8ee20bc0601e18ebb01b6d4be583733a860239a521a7fbca73b612e66705078809483549d2b18f370eb346c5155c8e4a0f
+  languageName: node
+  linkType: hard
+
 "@tootallnate/once@npm:2":
   version: 2.0.0
   resolution: "@tootallnate/once@npm:2.0.0"
@@ -478,10 +499,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^14.17.3":
-  version: 14.18.36
-  resolution: "@types/node@npm:14.18.36"
-  checksum: da7f479b3fc996d585e60b8329987c6e310ddbf051e14f2d900ce04f7768f42fa7b760f0eb376008d3eca130ce9431018fb5c9e44027dcb7bb139c547e44b9c5
+"@types/node@npm:^14.18.0":
+  version: 14.18.58
+  resolution: "@types/node@npm:14.18.58"
+  checksum: 45767bb137acdd1d1486bcce279d149ab1c44089401f124e8b7044f4cd7511aa841ae8fac030e81b988b45df21cfb4eca44281c6d7f75c87f803748a30cb9043
   languageName: node
   linkType: hard
 
@@ -699,6 +720,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"ansi-regex@npm:^6.0.1":
+  version: 6.0.1
+  resolution: "ansi-regex@npm:6.0.1"
+  checksum: 1ff8b7667cded1de4fa2c9ae283e979fc87036864317da86a2e546725f96406746411d0d85e87a2d12fa5abd715d90006de7fa4fa0477c92321ad3b4c7d4e169
+  languageName: node
+  linkType: hard
+
 "ansi-styles@npm:^3.2.1":
   version: 3.2.1
   resolution: "ansi-styles@npm:3.2.1"
@@ -714,6 +742,13 @@ __metadata:
   dependencies:
     color-convert: ^2.0.1
   checksum: 513b44c3b2105dd14cc42a19271e80f386466c4be574bccf60b627432f9198571ebf4ab1e4c3ba17347658f4ee1711c163d574248c0c1cdc2d5917a0ad582ec4
+  languageName: node
+  linkType: hard
+
+"ansi-styles@npm:^6.1.0":
+  version: 6.2.1
+  resolution: "ansi-styles@npm:6.2.1"
+  checksum: ef940f2f0ced1a6347398da88a91da7930c33ecac3c77b72c5905f8b8fe402c52e6fde304ff5347f616e27a742da3f1dc76de98f6866c69251ad0b07a66776d9
   languageName: node
   linkType: hard
 
@@ -1001,10 +1036,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"colorette@npm:^1.2.2":
-  version: 1.4.0
-  resolution: "colorette@npm:1.4.0"
-  checksum: 01c3c16058b182a4ab4c126a65a75faa4d38a20fa7c845090b25453acec6c371bb2c5dceb0a2338511f17902b9d1a9af0cadd8509c9403894b79311032c256c3
+"colorette@npm:^2.0.16":
+  version: 2.0.20
+  resolution: "colorette@npm:2.0.20"
+  checksum: 0c016fea2b91b733eb9f4bcdb580018f52c0bc0979443dad930e5037a968237ac53d9beb98e218d2e9235834f8eebce7f8e080422d6194e957454255bde71d3d
   languageName: node
   linkType: hard
 
@@ -1042,7 +1077,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cross-spawn@npm:^7.0.2, cross-spawn@npm:^7.0.3":
+"cross-spawn@npm:^7.0.0, cross-spawn@npm:^7.0.2, cross-spawn@npm:^7.0.3":
   version: 7.0.3
   resolution: "cross-spawn@npm:7.0.3"
   dependencies:
@@ -1139,6 +1174,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"eastasianwidth@npm:^0.2.0":
+  version: 0.2.0
+  resolution: "eastasianwidth@npm:0.2.0"
+  checksum: 7d00d7cd8e49b9afa762a813faac332dee781932d6f2c848dc348939c4253f1d4564341b7af1d041853bc3f32c2ef141b58e0a4d9862c17a7f08f68df1e0f1ed
+  languageName: node
+  linkType: hard
+
 "elementtree@npm:^0.1.7":
   version: 0.1.7
   resolution: "elementtree@npm:0.1.7"
@@ -1152,6 +1194,13 @@ __metadata:
   version: 8.0.0
   resolution: "emoji-regex@npm:8.0.0"
   checksum: d4c5c39d5a9868b5fa152f00cada8a936868fd3367f33f71be515ecee4c803132d11b31a6222b2571b1e5f7e13890156a94880345594d0ce7e3c9895f560f192
+  languageName: node
+  linkType: hard
+
+"emoji-regex@npm:^9.2.2":
+  version: 9.2.2
+  resolution: "emoji-regex@npm:9.2.2"
+  checksum: 8487182da74aabd810ac6d6f1994111dfc0e331b01271ae01ec1eb0ad7b5ecc2bbbbd2f053c05cb55a1ac30449527d819bbfbf0e3de1023db308cbcb47f86601
   languageName: node
   linkType: hard
 
@@ -1593,6 +1642,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"foreground-child@npm:^3.1.0":
+  version: 3.1.1
+  resolution: "foreground-child@npm:3.1.1"
+  dependencies:
+    cross-spawn: ^7.0.0
+    signal-exit: ^4.0.1
+  checksum: 139d270bc82dc9e6f8bc045fe2aae4001dc2472157044fdfad376d0a3457f77857fa883c1c8b21b491c6caade9a926a4bed3d3d2e8d3c9202b151a4cbbd0bcd5
+  languageName: node
+  linkType: hard
+
 "fs-extra@npm:^9.0.0":
   version: 9.1.0
   resolution: "fs-extra@npm:9.1.0"
@@ -1717,7 +1776,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"github-slugger@npm:^1.3.0":
+"github-slugger@npm:^1.4.0":
   version: 1.5.0
   resolution: "github-slugger@npm:1.5.0"
   checksum: c70988224578b3bdaa25df65973ffc8c24594a77a28550c3636e495e49d17aef5cdb04c04fa3f1744babef98c61eecc6a43299a13ea7f3cc33d680bf9053ffbe
@@ -1730,6 +1789,21 @@ __metadata:
   dependencies:
     is-glob: ^4.0.1
   checksum: f4f2bfe2425296e8a47e36864e4f42be38a996db40420fe434565e4480e3322f18eb37589617a98640c5dc8fdec1a387007ee18dbb1f3f5553409c34d17f425e
+  languageName: node
+  linkType: hard
+
+"glob@npm:^10.2.5":
+  version: 10.3.4
+  resolution: "glob@npm:10.3.4"
+  dependencies:
+    foreground-child: ^3.1.0
+    jackspeak: ^2.0.3
+    minimatch: ^9.0.1
+    minipass: ^5.0.0 || ^6.0.2 || ^7.0.0
+    path-scurry: ^1.10.1
+  bin:
+    glob: dist/cjs/src/bin.js
+  checksum: 176b97c124414401cb51329a93d2ba112cef8814adbed10348481916b9521b677773eee2691cb6b24d66632d8c8bb8913533f5ac4bfb2d0ef5454a1856082361
   languageName: node
   linkType: hard
 
@@ -2221,6 +2295,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"jackspeak@npm:^2.0.3":
+  version: 2.3.3
+  resolution: "jackspeak@npm:2.3.3"
+  dependencies:
+    "@isaacs/cliui": ^8.0.2
+    "@pkgjs/parseargs": ^0.11.0
+  dependenciesMeta:
+    "@pkgjs/parseargs":
+      optional: true
+  checksum: 4313a7c0cc44c7753c4cb9869935f0b06f4cf96827515f63f58ff46b3d2f6e29aba6b3b5151778397c3f5ae67ef8bfc48871967bd10343c27e90cff198ec7808
+  languageName: node
+  linkType: hard
+
 "java-parser@npm:1.0.2":
   version: 1.0.2
   resolution: "java-parser@npm:1.0.2"
@@ -2442,6 +2529,15 @@ __metadata:
   dependencies:
     brace-expansion: ^2.0.1
   checksum: 2e46cffb86bacbc524ad45a6426f338920c529dd13f3a732cc2cf7618988ee1aae88df4ca28983285aca9e0f45222019ac2d14ebd17c1edadd2ee12221ab801a
+  languageName: node
+  linkType: hard
+
+"minimatch@npm:^9.0.1":
+  version: 9.0.3
+  resolution: "minimatch@npm:9.0.3"
+  dependencies:
+    brace-expansion: ^2.0.1
+  checksum: 253487976bf485b612f16bf57463520a14f512662e592e95c571afdab1442a6a6864b6c88f248ce6fc4ff0b6de04ac7aa6c8bb51e868e99d1d65eb0658a708b5
   languageName: node
   linkType: hard
 
@@ -2766,7 +2862,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"path-scurry@npm:^1.6.1":
+"path-scurry@npm:^1.10.1, path-scurry@npm:^1.6.1":
   version: 1.10.1
   resolution: "path-scurry@npm:1.10.1"
   dependencies:
@@ -3015,9 +3111,20 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rollup@npm:^2.32.0":
-  version: 2.79.1
-  resolution: "rollup@npm:2.79.1"
+"rimraf@npm:^5.0.1":
+  version: 5.0.1
+  resolution: "rimraf@npm:5.0.1"
+  dependencies:
+    glob: ^10.2.5
+  bin:
+    rimraf: dist/cjs/src/bin.js
+  checksum: bafce85391349a2d960847980bf9b5caa2a8887f481af630f1ea27e08288217293cec72d75e9a2ba35495c212789f66a7f3d23366ba6197026ab71c535126857
+  languageName: node
+  linkType: hard
+
+"rollup@npm:^3.29.0":
+  version: 3.29.0
+  resolution: "rollup@npm:3.29.0"
   dependencies:
     fsevents: ~2.3.2
   dependenciesMeta:
@@ -3025,7 +3132,7 @@ __metadata:
       optional: true
   bin:
     rollup: dist/bin/rollup
-  checksum: 6a2bf167b3587d4df709b37d149ad0300692cc5deb510f89ac7bdc77c8738c9546ae3de9322b0968e1ed2b0e984571f5f55aae28fa7de4cfcb1bc5402a4e2be6
+  checksum: 77124a606f44c065dce95b615cd0c9955e1a12f67a30ad28c1128438d5080535b0f028d0edef9dda576ebe8806bdc48aff990198334978738da9716fe9677d72
   languageName: node
   linkType: hard
 
@@ -3149,6 +3256,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"signal-exit@npm:^4.0.1":
+  version: 4.1.0
+  resolution: "signal-exit@npm:4.1.0"
+  checksum: 64c757b498cb8629ffa5f75485340594d2f8189e9b08700e69199069c8e3070fb3e255f7ab873c05dc0b3cec412aea7402e10a5990cb6a050bd33ba062a6c549
+  languageName: node
+  linkType: hard
+
 "sisteransi@npm:^1.0.5":
   version: 1.0.5
   resolution: "sisteransi@npm:1.0.5"
@@ -3225,7 +3339,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"string-width@npm:^1.0.2 || 2 || 3 || 4, string-width@npm:^4.1.0, string-width@npm:^4.2.3":
+"string-width-cjs@npm:string-width@^4.2.0, string-width@npm:^1.0.2 || 2 || 3 || 4, string-width@npm:^4.1.0, string-width@npm:^4.2.3":
   version: 4.2.3
   resolution: "string-width@npm:4.2.3"
   dependencies:
@@ -3233,6 +3347,17 @@ __metadata:
     is-fullwidth-code-point: ^3.0.0
     strip-ansi: ^6.0.1
   checksum: e52c10dc3fbfcd6c3a15f159f54a90024241d0f149cf8aed2982a2d801d2e64df0bf1dc351cf8e95c3319323f9f220c16e740b06faecd53e2462df1d2b5443fb
+  languageName: node
+  linkType: hard
+
+"string-width@npm:^5.0.1, string-width@npm:^5.1.2":
+  version: 5.1.2
+  resolution: "string-width@npm:5.1.2"
+  dependencies:
+    eastasianwidth: ^0.2.0
+    emoji-regex: ^9.2.2
+    strip-ansi: ^7.0.1
+  checksum: 7369deaa29f21dda9a438686154b62c2c5f661f8dda60449088f9f980196f7908fc39fdd1803e3e01541970287cf5deae336798337e9319a7055af89dafa7193
   languageName: node
   linkType: hard
 
@@ -3267,12 +3392,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"strip-ansi@npm:^6.0.0, strip-ansi@npm:^6.0.1":
+"strip-ansi-cjs@npm:strip-ansi@^6.0.1, strip-ansi@npm:^6.0.0, strip-ansi@npm:^6.0.1":
   version: 6.0.1
   resolution: "strip-ansi@npm:6.0.1"
   dependencies:
     ansi-regex: ^5.0.1
   checksum: f3cd25890aef3ba6e1a74e20896c21a46f482e93df4a06567cebf2b57edabb15133f1f94e57434e0a958d61186087b1008e89c94875d019910a213181a14fc8c
+  languageName: node
+  linkType: hard
+
+"strip-ansi@npm:^7.0.1":
+  version: 7.1.0
+  resolution: "strip-ansi@npm:7.1.0"
+  dependencies:
+    ansi-regex: ^6.0.1
+  checksum: 859c73fcf27869c22a4e4d8c6acfe690064659e84bef9458aa6d13719d09ca88dcfd40cbf31fd0be63518ea1a643fe070b4827d353e09533a5b0b9fd4553d64d
   languageName: node
   linkType: hard
 
@@ -3315,16 +3449,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"swiftlint@npm:^1.0.1":
-  version: 1.0.1
-  resolution: "swiftlint@npm:1.0.1"
+"swiftlint@npm:^1.0.2":
+  version: 1.0.2
+  resolution: "swiftlint@npm:1.0.2"
   dependencies:
-    "@ionic/utils-fs": ^3.1.3
-    "@ionic/utils-subprocess": ^2.1.3
+    "@ionic/utils-fs": 3.1.6
+    "@ionic/utils-subprocess": 2.1.11
     cosmiconfig: ^6.0.0
   bin:
     node-swiftlint: bin.js
-  checksum: 875dc1471a74360812a8b4524ea512e62317a9d19d88a68cace33f09ee64663e55ed53683112a228b3723c3119d782263b43f44fe9d51b40e1067d24fc0fd6b3
+  checksum: e03c81103bebf42c3aff1f028e3bca80319e61240453823afe6287c30536a399965489f6c2819dfaa3d6329391523e772be73f06ef7230c6b5882bc0e2d2f97b
   languageName: node
   linkType: hard
 
@@ -3460,13 +3594,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:5.0.4":
-  version: 5.0.4
-  resolution: "typescript@npm:5.0.4"
+"typescript@npm:5.2.2":
+  version: 5.2.2
+  resolution: "typescript@npm:5.2.2"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 82b94da3f4604a8946da585f7d6c3025fff8410779e5bde2855ab130d05e4fd08938b9e593b6ebed165bda6ad9292b230984f10952cf82f0a0ca07bbeaa08172
+  checksum: 7912821dac4d962d315c36800fe387cdc0a6298dba7ec171b350b4a6e988b51d7b8f051317786db1094bd7431d526b648aba7da8236607febb26cf5b871d2d3c
   languageName: node
   linkType: hard
 
@@ -3480,13 +3614,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@5.0.4#~builtin<compat/typescript>":
-  version: 5.0.4
-  resolution: "typescript@patch:typescript@npm%3A5.0.4#~builtin<compat/typescript>::version=5.0.4&hash=b5f058"
+"typescript@patch:typescript@5.2.2#~builtin<compat/typescript>":
+  version: 5.2.2
+  resolution: "typescript@patch:typescript@npm%3A5.2.2#~builtin<compat/typescript>::version=5.2.2&hash=5da071"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: d26b6ba97b6d163c55dbdffd9bbb4c211667ebebc743accfeb2c8c0154aace7afd097b51165a72a5bad2cf65a4612259344ff60f8e642362aa1695c760d303ac
+  checksum: 07106822b4305de3f22835cbba949a2b35451cad50888759b6818421290ff95d522b38ef7919e70fb381c5fe9c1c643d7dea22c8b31652a717ddbd57b7f4d554
   languageName: node
   linkType: hard
 
@@ -3621,7 +3755,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"wrap-ansi@npm:^7.0.0":
+"wrap-ansi-cjs@npm:wrap-ansi@^7.0.0, wrap-ansi@npm:^7.0.0":
   version: 7.0.0
   resolution: "wrap-ansi@npm:7.0.0"
   dependencies:
@@ -3629,6 +3763,17 @@ __metadata:
     string-width: ^4.1.0
     strip-ansi: ^6.0.0
   checksum: a790b846fd4505de962ba728a21aaeda189b8ee1c7568ca5e817d85930e06ef8d1689d49dbf0e881e8ef84436af3a88bc49115c2e2788d841ff1b8b5b51a608b
+  languageName: node
+  linkType: hard
+
+"wrap-ansi@npm:^8.1.0":
+  version: 8.1.0
+  resolution: "wrap-ansi@npm:8.1.0"
+  dependencies:
+    ansi-styles: ^6.1.0
+    string-width: ^5.0.1
+    strip-ansi: ^7.0.1
+  checksum: 371733296dc2d616900ce15a0049dca0ef67597d6394c57347ba334393599e800bab03c41d4d45221b6bc967b8c453ec3ae4749eff3894202d16800fdfe0e238
   languageName: node
   linkType: hard
 

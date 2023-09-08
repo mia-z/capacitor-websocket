@@ -1,3 +1,8 @@
+source 'https://github.com/CocoaPods/Specs.git'
+use_frameworks!
+
+pod 'Starscream', '~> 4.0.6'
+
 platform :ios, '13.0'
 
 def capacitor_pods
@@ -9,7 +14,6 @@ end
 
 target 'Plugin' do
   capacitor_pods
-  pod 'Starscream', '~> 4.0.0'
 end
 
 target 'PluginTests' do
